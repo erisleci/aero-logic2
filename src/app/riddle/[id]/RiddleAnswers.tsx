@@ -54,7 +54,7 @@ export const RiddleAnswers = ({ riddle }: Props) => {
         </div>
       )}
       {selected && correct && selected !== correct.id && (
-        <div className="bg-red-300  my-6 p-3">
+        <div className="bg-red-300  my-6 p-3" data-test="wrong-answer">
           {"This time your answer is wrong."}
         </div>
       )}
