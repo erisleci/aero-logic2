@@ -1,8 +1,14 @@
 import { useGetAnswer } from "../riddle/[id]/useGetAnswer";
 import { useRetrieveRiddle } from "../riddle/[id]/useRetrieveRiddle";
+import { useRandomRiddle } from '../useRandomRiddle';
 
 describe("solve random riddle", () => {
   it("should solve the riddle correctly", () => {
+    cy.injectFakeAdapter(useRandomRiddle, {
+      body: {
+        id: "1",
+      },
+    });
     cy.injectFakeAdapter(useRetrieveRiddle, {
       body: {
         id: "1",
@@ -31,6 +37,11 @@ describe("solve random riddle", () => {
   });
 
   it("should fail the riddle when the answer is wrong", () => {
+    cy.injectFakeAdapter(useRandomRiddle, {
+      body: {
+        id: "1",
+      },
+    });
     cy.injectFakeAdapter(useRetrieveRiddle, {
       body: {
         id: "1",
