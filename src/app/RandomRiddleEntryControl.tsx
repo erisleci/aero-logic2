@@ -2,18 +2,19 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRandomRiddle } from './useRandomRiddle';
 
 export const RandomRiddleEntryControl = () => {
   const router = useRouter();
   const [id, setId] = useState<string>();
+  const { getData } = useRandomRiddle();
   const handleClick = () => {
     router.push(`/riddle/${id}`);
   }
 
   useEffect(() => {
     async function getRandomRiddle() {
-      const response = await fetch('http://localhost:3000/api/random-riddle');
-      const riddle = await response.json();
+      const riddle = await getData();
 
       setId(riddle.id);
 
