@@ -29,7 +29,7 @@ describe("solve random riddle", () => {
       "contain",
       "What is the answer to this riddle?"
     );
-    cy.get("[data-answers-list]").contains("Answer 1").click();
+    cy.get("[data-test=answers-list]").contains("Answer 1").click();
     cy.get("[data-test=correct-answer]").should(
       "contain",
       "Great job! You're right 🙏"
@@ -62,7 +62,7 @@ describe("solve random riddle", () => {
       "contain",
       "What is the answer to this riddle?"
     );
-    cy.get("[data-answers-list]").contains("Answer 1").click();
+    cy.get("[data-test=answers-list]").contains("Answer 1").click();
     cy.get("[data-test=wrong-answer]").should(
       "contain",
       "This time your answer is wrong."
